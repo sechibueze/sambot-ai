@@ -1,0 +1,18 @@
+[project]
+name = "ai-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "openai>=3.8.0",
+    "python-dotenv>=1.2.3",
+    "streamlit>=1.63.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
+]
