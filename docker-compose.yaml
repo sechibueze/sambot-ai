@@ -1,0 +1,67 @@
+services:
+  sambot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sambot
+    ports:
+      - '8501:8501'
+    environment:
+      LLM_PROVIDER: ollama
+      OLLAMA_BASE_URL: http://ollama:11434/api
+      OLLAMA_MODEL: tinyllama:1.1b
+      SYSTEM_PROMPT: >-
+        You are Sambot, a helpful personal AI assistant.
+        Give clear, accurate and practical answers.
+        When explaining technical concepts, be concise but provide
+        enough detail for the user to understand and implement them.
+    depends_on:
+      ollama-init:
+        condition: service_completed_successfully
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: sambot-ollama
+    ports:
+      - '11434:11434'
+    volumes:
+      - ollama_data:/root/.ollama
+
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: sambot-ollama-init
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ./scripts/ollama-init.sh:/ollama-init.sh:ro
+      - ollama_data:/root/.ollama
+    entrypoint: ['/bin/sh', '/ollama-init.sh']
+  # ollama-init:
+  #   image: ollama/ollama:latest
+  #   container_name: sambot-ollama-init
+  #   depends_on:
+  #     - ollama
+  #   environment:
+  #     OLLAMA_HOST: http://ollama:11434
+  #   entrypoint: ['/bin/sh', '-c']
+  #   command:
+  #     - |
+  #       echo "Waiting for Ollama..."
+
+  #       until ollama list >/dev/null 2>&1; do
+  #         sleep 2
+  #       done
+
+  #       echo "Ollama is ready."
+
+  #       # ollama pull qwen3.8:latest
+  #       ollama pull tinyllama:1.1b
+  #       # ollama pull nomic-embed-text:latest
+
+  #       echo "Installed models:"
+  #       ollama list
+
+volumes:
+  ollama_data:
