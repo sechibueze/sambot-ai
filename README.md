@@ -1,74 +1,43 @@
-# Sambot 🤖
+# Sambot — A personal intelligence system for thinking, learning, building, and getting things done.
 
-Sambot is a personal AI assistant project focused on building a clean, thoughtful foundation for working with large language models. Rather than jumping straight into complex AI tooling, Sambot is being developed step by step — starting with a simple, reliable application and gradually introducing more advanced AI capabilities as the project matures.
+Sambot is the foundation of a long-term personal intelligence system: a single, extensible assistant designed to eventually understand my work, automate my decisions, and act on my behalf across every project I run — from product architecture to community operations.
 
-The goal is twofold: to create a genuinely useful personal assistant, and to serve as a hands-on learning ground for modern AI engineering practices — from integrating language models, to testing, deployment, and eventually more advanced concepts like retrieval-augmented generation and autonomous agents.
+## The Idea
 
-> **Current status:** Early development. Sambot currently runs on a simulated AI response system while the core architecture is being solidified — ensuring the foundation is solid before real AI models are connected.
+I build and run multiple things at once — a startup, community, technical education. A personal intelligence is the connective layer: one assistant that can eventually query my codebases, summarize my network's activity, draft strategy, and reason over everything I'm working on, instead of context-switching between five disconnected tools.
 
----
-
-## What Sambot Does Today
-
-- Provides a clean, chat-based interface for conversing with an assistant
-- Maintains conversation context during a session
-- Supports starting fresh conversations
-- Is built with a flexible design that allows different AI "brains" to be plugged in later
-- Includes automated testing and code quality checks to keep the project reliable as it grows
-
-## What's Coming Next
-
-- Support for running AI models locally, without relying on external services
-- Integration with cloud-based AI providers
-- The ability to switch between different AI providers easily
-- Persistent conversation history, so past chats aren't lost
-- Smarter, more capable assistant behavior
-- Containerized deployment for easy setup and hosting
-- Automated deployment pipelines
-- Advanced capabilities such as knowledge retrieval and multi-step reasoning ("agents")
+Sambot is step one: prove the architecture can scale from "simulated responses" to "autonomous agent" without a rewrite.
 
 ---
 
-## Why This Project Matters
+## What's Built
 
-Sambot isn't just about building a chatbot — it's about understanding, end to end, how a modern AI application is designed, built, and scaled responsibly. Every stage of the roadmap introduces a real engineering concept, deliberately avoiding shortcuts or unnecessary complexity.
+- Chat interface with session-level conversation context
+- Modular design — the interface, conversation logic, and AI backend are fully decoupled, so any layer can be swapped without touching the others
+- Automated tests and code quality checks from day one
+- A provider-agnostic architecture ready to plug in any AI backend (local or cloud) via configuration, not code changes
 
-This approach mirrors how production AI systems are actually built in the real world: starting with a solid, testable foundation, then layering in intelligence, reliability, and scale over time — rather than bolting on advanced features before the basics are right.
+## Engineering Principles
 
----
-
-## Design Philosophy
-
-Sambot is guided by a few simple principles:
-
-- **Separation of concerns** — the interface, the conversation logic, and the AI integration are kept independent, so any piece can evolve without breaking the others.
-- **Configuration over hardcoding** — how the assistant behaves (which AI provider it uses, for example) should be adjustable without rewriting the application.
-- **Testable by design** — core logic can be verified without needing a live AI connection, making the project more reliable and easier to maintain.
-- **Incremental growth** — new capabilities are added deliberately and only when there's a clear reason for them, avoiding unnecessary complexity.
+- **Separation of concerns** — interface, logic, and intelligence evolve independently
+- **Configuration over hardcoding** — swap AI providers without rewriting the app
+- **Testable by design** — core logic verified with zero live AI dependency
+- **Incremental growth** — every capability earns its place; no premature complexity
 
 ---
 
-## Project Roadmap
+## Roadmap
 
-**Phase 1 — Foundation** ✅ Complete
-Established the core application, conversation handling, and testing setup.
-
-**Phase 2 — Real AI Integration** 🔜 In progress
-Connecting the assistant to real language models, both locally hosted and cloud-based.
-
-**Phase 3 — Smarter Assistant**
-Improving how the assistant understands context, manages longer conversations, and communicates more naturally.
-
-**Phase 4 — Production Readiness**
-Making the project easy to deploy, monitor, and run reliably outside of a local machine.
-
-**Phase 5 — Advanced AI Capabilities**
-Exploring more sophisticated features such as knowledge retrieval, multi-step reasoning, and intelligent agent behavior.
+| Phase                     | Focus                                        | Status         |
+| ------------------------- | -------------------------------------------- | -------------- |
+| 1 — Foundation            | Core app, conversation handling, testing     | ✅ Complete    |
+| 2 — Real AI Integration   | Local + cloud model connections              | 🔜 In progress |
+| 3 — Smarter Assistant     | Context management, natural interaction      | Planned        |
+| 4 — Production Readiness  | Containerized deployment, CI/CD              | Planned        |
+| 5 — Advanced Intelligence | RAG, multi-step reasoning, autonomous agents | Planned        |
 
 ---
 
-## Current Status
+## Why It Matters
 
-🚧 **Active Development**
-
-Sambot is in its foundational stage, with the next major milestone being the integration of a real, locally-hosted AI model — the first step toward turning Sambot into a fully functioning personal assistant.
+This is a deliberate, end-to-end build of the same kind of system powering production AI products today: solid foundations first, intelligence and autonomy layered in with intent. The long-term goal is a personal intelligence that scales with everything I build next.

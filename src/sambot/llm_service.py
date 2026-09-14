@@ -3,7 +3,7 @@ from sambot.llm import LLMProvider
 
 from sambot.chat import Message
 from sambot.config import settings
-from sambot.llm_providers import FakeProvider
+from sambot.llm_providers import FakeProvider, OllamaProvider
 
 logger = logging.getLogger(__name__)
 
@@ -12,6 +12,8 @@ def get_provider() -> LLMProvider:
 
     if settings.llm_provider == "fake":
         return FakeProvider()
+    if settings.llm_provider == "ollama":
+        return OllamaProvider()
 
     raise ValueError(
         f"Unsupported LLM provider: {settings.llm_provider}"
